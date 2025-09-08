@@ -15,19 +15,13 @@
     a { text-decoration: none; color: inherit; }
     
     /* Estilos do Projeto (Classes do Tailwind convertidas para CSS) */
-    .bg-gray-100 { background-color: #f3f4f6; }
     .bg-white { background-color: #fff; }
     .flex { display: flex; }
         .items-center { align-items: center; }
         .justify-center { justify-content: center; }
-        .min-h-screen { min-height: 100vh; }
         .w-full { width: 100%; }
-        .max-w-sm { max-width: 24rem; }
-        .mx-auto { margin-left: auto; margin-right: auto; }
-        .rounded-3xl { border-radius: 1.5rem; }
-        .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0,0,0,.25); }
+        .bg-white { background-color: #fff; }
         .overflow-hidden { overflow: hidden; }
-        .my-4 { margin-top: 1rem; margin-bottom: 1rem; }
         .bg-\[\#193c5c\] { background-color: #193c5c; }
         .p-8 { padding: 2rem; }
         .p-6 { padding: 1.5rem; }
@@ -35,9 +29,9 @@
         .text-center { text-align: center; }
         .h-28 { height: 7rem; }
         .w-28 { width: 7rem; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
         .h-full { height: 100%; }
         .object-cover { object-fit: cover; }
-        .object-contain { object-fit: contain; }
         .rounded-full { border-radius: 9999px; }
         .mb-4 { margin-bottom: 1rem; }
         .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
@@ -52,6 +46,7 @@
         .gap-4 { gap: 1rem; }
         .space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem; }
         .bg-blue-500 { background-color: #3b82f6; }
+        .font-bold { font-weight: 700; }
         .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
         .px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
         .px-4 { padding-left: 1rem; padding-right: 1rem; }
@@ -77,6 +72,7 @@
         .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .sm\:text-sm { font-size: .875rem; line-height: 1.25rem; }
         .mt-8 { margin-top: 2rem; }
+        .rounded-xl { border-radius: .75rem; }
         .border { border-width: 1px; }
         .border-gray-200 { border-color: #e5e7eb; }
         .text-gray-600 { color: #4b5563; }
@@ -91,6 +87,7 @@
         .from-pink-500 { --tw-gradient-from: #ec4899; --tw-gradient-to: rgba(236,72,153,0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
         .via-red-500 { --tw-gradient-to: rgba(239,68,68,0); --tw-gradient-stops: var(--tw-gradient-from), #ef4444, var(--tw-gradient-to); }
         .to-yellow-500 { --tw-gradient-to: #eab308; }
+        .text-center { text-align: center; }
         .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
         .bg-gray-50 { background-color: #f9fafb; }
         .border-t { border-top-width: 1px; }
@@ -110,12 +107,13 @@
         .animate-blur-in { animation: blur-in 0.8s ease-out forwards; }
     </style>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+<body class="bg-white">
     
-    <div class="w-full max-w-sm mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden my-4">
+    <div class="w-full bg-white overflow-hidden">
         
         <header class="bg-[#193c5c] p-8 text-white text-center">
-            <div class="mx-auto h-28 w-28 flex items-center justify-center mb-4 opacity-0 animate-blur-in">
+            <!-- A classe "bg-white" foi removida desta div -->
+            <div class="mx-auto h-28 w-28 rounded-full flex items-center justify-center mb-4 opacity-0 animate-blur-in overflow-hidden">
                 <img src="img/Logo.png" alt="Logo Frizzo Seguros" class="h-full w-full object-cover">
             </div>
             <h1 class="text-xl font-bold text-white opacity-0 animate-fall-down" style="animation-delay: 0.2s;">Frizzo Corretora de Seguros</h1>
@@ -144,7 +142,7 @@
                         <span class="text-xs font-semibold">Salvar Contato</span>
                     </a>
                     <button id="shareButton" class="flex items-center justify-center w-full bg-indigo-500 text-white font-bold py-3 px-2 rounded-xl hover:bg-indigo-600 transition-transform transform hover:scale-105 text-center opacity-0 animate-blur-in" style="animation-delay: 0.9s;">
-                    <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12s-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6.002l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.368a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path></svg>
+                        <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12s-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6.002l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.368a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path></svg>
                         <span class="text-xs font-semibold">Compartilhar</span>
                     </button>
                 </div>
@@ -160,7 +158,7 @@
             <div class="mt-8 opacity-0 animate-fall-down" style="animation-delay: 1.1s;">
                 <div class="rounded-xl overflow-hidden border border-gray-200">
                     <iframe
-                        src="https://maps.google.com/maps?q=Rua%20Moacir%20Miguel%20da%20Silva,%2091%20Jardim%20Bonfiglioli&t=&z=15&ieUTF8&iwloc=&output=embed"
+                        src="https://maps.google.com/maps?q=Rua%20Moacir%20Miguel%20da%20Silva,%2091%20Jardim%20Bonfiglioli&t=&z=15&ie=UTF8&iwloc=&output=embed"
                         width="100%"
                         height="200"
                         style="border:0;"
@@ -201,12 +199,35 @@
                     if (navigator.share) {
                         await navigator.share(shareData);
                     } else {
-                        await navigator.clipboard.writeText(window.location.href);
-                        const originalText = shareButton.querySelector('span').textContent;
-                        shareButton.querySelector('span').textContent = 'Link Copiado!';
-                        setTimeout(() => {
-                        shareButton.querySelector('span').textContent = originalText;
-                        }, 2000);
+                        // Fallback para copiar o link (não funciona em iframes de alguns ambientes)
+                        // Tente copiar para a área de transferência
+                        try {
+                            await navigator.clipboard.writeText(window.location.href);
+                            const originalText = shareButton.querySelector('span').textContent;
+                            shareButton.querySelector('span').textContent = 'Link Copiado!';
+                            setTimeout(() => {
+                                shareButton.querySelector('span').textContent = originalText;
+                            }, 2000);
+                        } catch (copyErr) {
+                            // Se navigator.clipboard também falhar, use um método mais antigo
+                            const textArea = document.createElement("textarea");
+                            textArea.value = window.location.href;
+                            document.body.appendChild(textArea);
+                            textArea.focus();
+                            textArea.select();
+                            try {
+                                document.execCommand('copy');
+                                const originalText = shareButton.querySelector('span').textContent;
+                                shareButton.querySelector('span').textContent = 'Link Copiado!';
+                                setTimeout(() => {
+                                    shareButton.querySelector('span').textContent = originalText;
+                                }, 2000);
+                            } catch (execErr) {
+                                console.error('Falha ao copiar o link.', execErr);
+                                // Poderia mostrar uma mensagem de erro para o usuário aqui
+                            }
+                            document.body.removeChild(textArea);
+                        }
                     }
                 } catch (err) {
                     console.error('Erro ao compartilhar ou copiar:', err);
@@ -217,4 +238,3 @@
 
 </body>
 </html>
-
