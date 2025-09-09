@@ -17,6 +17,7 @@
     /* Estilos do Projeto (Classes do Tailwind convertidas para CSS) */
     .bg-white { background-color: #fff; }
     .flex { display: flex; }
+    .inline-flex { display: inline-flex; }
         .items-center { align-items: center; }
         .justify-center { justify-content: center; }
         .w-full { width: 100%; }
@@ -34,14 +35,15 @@
         .object-cover { object-fit: cover; }
         .rounded-full { border-radius: 9999px; }
         .mb-2 { margin-bottom: 0.5rem; } /* Espaçamento da logo ajustado */
+        .mb-4 { margin-bottom: 1rem; }
         .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+        .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
         .font-bold { font-weight: 700; }
         .text-md { font-size: 1rem; line-height: 1.5rem; }
         .text-white\/80 { color: rgba(255,255,255,.8); }
-        .mt-1 { margin-top: 0.25rem; }
         .text-gray-800 { color: #1f2937; }
+        .text-gray-600 { color: #4b5563; }
         .mt-6 { margin-top: 1.5rem; }
-        .mt-4 { margin-top: 1rem; }
         .grid { display: grid; }
         .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .gap-4 { gap: 1rem; }
@@ -49,6 +51,7 @@
         .bg-blue-500 { background-color: #3b82f6; }
         .font-bold { font-weight: 700; }
         .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
         .px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
         .px-4 { padding-left: 1rem; padding-right: 1rem; }
         .rounded-xl { border-radius: 0.75rem; }
@@ -58,6 +61,8 @@
         .hover\:scale-105:hover { transform: scale(1.05); }
         .w-5 { width: 1.25rem; }
         .h-5 { height: 1.25rem; }
+        .w-4 { width: 1rem; }
+        .h-4 { height: 1rem; }
         .mr-2 { margin-right: 0.5rem; }
         .flex-shrink-0 { flex-shrink: 0; }
         .text-xs { font-size: 0.75rem; line-height: 1rem; }
@@ -72,17 +77,15 @@
         .hover\:bg-yellow-600:hover { background-color: #ca8a04; }
         .hover\:opacity-90:hover { opacity: .9; }
         .mt-8 { margin-top: 2rem; }
+        .mt-4 { margin-top: 1rem; }
         .border { border-width: 1px; }
         .border-gray-200 { border-color: #e5e7eb; }
-        .text-gray-600 { color: #4b5563; }
         .mt-3 { margin-top: 0.75rem; }
         .gap-6 { gap: 1.5rem; }
         .bg-blue-700 { background-color: #1d4ed8; }
         .hover\:bg-blue-800:hover { background-color: #1e40af; }
         .w-10 { width: 2.5rem; }
         .h-10 { height: 2.5rem; }
-        .w-16 { width: 4rem; }
-        .h-4 { height: 1rem; }
         .hover\:scale-110:hover { transform: scale(1.1); }
         .bg-gradient-to-r { background-image: linear-gradient(to right, var(--tw-gradient-stops)); }
         .from-pink-500 { --tw-gradient-from: #ec4899; --tw-gradient-to: rgba(236,72,153,0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
@@ -111,6 +114,68 @@
             animation: rotate-3d 8s linear infinite;
             transform-style: preserve-3d;
         }
+
+        /* --- Estilos do Título da Seção de Avaliações --- */
+        .text-gradient {
+            background: linear-gradient(45deg, #193c5c, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            padding-bottom: 8px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .text-gradient::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 90px; /* Linha aumentada */
+            height: 3px;
+            background: #193c5c;
+            border-radius: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+        }
+
+        /* --- Estilos Carrossel: Pilha de Cartões Desorganizada --- */
+        .card-stack-container {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            -webkit-tap-highlight-color: transparent; /* Remove o brilho azul no toque em mobile */
+        }
+        .card-stack-slide {
+            position: absolute;
+            width: 85%;
+            max-width: 300px;
+            height: 150px;
+            transition: transform 0.7s ease-out, opacity 0.7s ease-out;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 4px solid white;
+            cursor: grab;
+        }
+        .card-stack-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none; /* Impede que a imagem interfira no gesto de arrastar */
+        }
+        .card-out-right {
+            transform: translateX(250px) rotate(15deg) !important;
+            opacity: 0 !important;
+        }
+        .card-out-left {
+            transform: translateX(-250px) rotate(-15deg) !important;
+            opacity: 0 !important;
+        }
+
     </style>
 </head>
 <body class="bg-white">
@@ -154,30 +219,14 @@
                         <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12s-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6.002l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.368a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path></svg>
                         <span class="text-xs font-semibold">Compartilhar</span>
                     </button>
-                    <a href="https://www.google.com/maps/place/Ffrizzo+Seguros/@-23.5784503,-46.7424779,18.5z/data=!4m8!3m7!1s0x94ce5434d3b729bd:0x22dc1a58d07f0ec0!8m2!3d-23.5786798!4d-46.7415655!9m1!1b1!16s%2Fg%2F11bzwxmpml?entry=ttu&g_ep=EgoyMDI1MDkwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="flex items-center justify-center w-full bg-yellow-500 text-white font-bold py-3 px-2 rounded-xl hover:bg-yellow-600 transition-transform transform hover:scale-105 text-center opacity-0 animate-blur-in" style="animation-delay: 1.0s;">
-                        <svg class="w-16 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 130 24" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <path id="star" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                            </defs>
-                            <use href="#star" x="0" />
-                            <use href="#star" x="26" />
-                            <use href="#star" x="52" />
-                            <use href="#star" x="78" />
-                            <use href="#star" x="104" />
-                        </svg>
-                        <span class="text-xs font-semibold">Nos Avalie</span>
+                    <a href="https://frizzoseguros.com.br" target="_blank" class="flex items-center justify-center w-full bg-[#193c5c] text-white font-bold py-3 px-2 rounded-xl hover:opacity-90 transition-transform transform hover:scale-105 text-center opacity-0 animate-blur-in" style="animation-delay: 1.0s;">
+                        <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        <span class="text-xs font-semibold">Nosso Site</span>
                     </a>
                 </div>
             </div>
 
-            <div class="mt-4">
-                <a href="https://frizzoseguros.com.br" target="_blank" class="flex items-center justify-center w-full bg-[#193c5c] text-white font-bold py-3 px-4 rounded-xl hover:opacity-90 transition-transform transform hover:scale-105 text-center opacity-0 animate-blur-in" style="animation-delay: 1.1s;">
-                    <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                    <span class="text-xs font-semibold">Nosso Site</span>
-                </a>
-            </div>
-
-            <div class="mt-8 opacity-0 animate-fall-down" style="animation-delay: 1.2s;">
+            <div class="mt-8 opacity-0 animate-fall-down" style="animation-delay: 1.1s;">
                 <div class="rounded-xl overflow-hidden border border-gray-200">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.915064523171!2d-46.74414038822051!3d-23.57867977870163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5434d3b729bd%3A0x22dc1a58d07f0ec0!2sFfrizzo%20Seguros!5e0!3m2!1spt-BR!2sbr"
@@ -190,15 +239,38 @@
                     </iframe>
                 </div>
                 <p class="text-center text-gray-600 mt-3">Rua Moacir Miguel da Silva, 91 - Jardim Bonfiglioli, 05595-000</p>
-                
-                <div class="mt-6 flex justify-center items-center gap-6">
-                    <a href="https://www.facebook.com/FrizzoCorretoraDeSeguros" target="_blank" class="flex items-center justify-center w-10 h-10 bg-blue-700 text-white rounded-full hover:bg-blue-800 transition-transform transform hover:scale-110 opacity-0 animate-blur-in" style="animation-delay: 1.3s;">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"></path></svg>
-                    </a>
-                    <a href="https://www.instagram.com/frizzoseguros/" target="_blank" class="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white rounded-full hover:opacity-90 transition-transform transform hover:scale-110 opacity-0 animate-blur-in" style="animation-delay: 1.4s;">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </div>
+            
+            <div class="mt-8 opacity-0 animate-fall-down" style="animation-delay: 1.2s;">
+                <div class="text-center mb-4">
+                    <h3 class="text-xl font-bold text-gradient">A satisfação de nossos clientes</h3>
+                    <p class="text-md text-gray-600" style="margin-top: -0.6rem;">Nossas avaliações do Google</p>
+                </div>
+                <div id="card-stack-container" class="card-stack-container">
+                    <div class="card-stack-slide"><img src="https://placehold.co/300x150/e2e8f0/64748b?text=Avalia%C3%A7%C3%A3o+A" alt="Avaliação A"></div>
+                    <div class="card-stack-slide"><img src="https://placehold.co/300x150/e2e8f0/64748b?text=Avalia%C3%A7%C3%A3o+B" alt="Avaliação B"></div>
+                    <div class="card-stack-slide"><img src="https://placehold.co/300x150/e2e8f0/64748b?text=Avalia%C3%A7%C3%A3o+C" alt="Avaliação C"></div>
+                    <div class="card-stack-slide"><img src="https://placehold.co/300x150/e2e8f0/64748b?text=Avalia%C3%A7%C3%A3o+D" alt="Avaliação D"></div>
+                    <div class="card-stack-slide"><img src="https://placehold.co/300x150/e2e8f0/64748b?text=Avalia%C3%A7%C3%A3o+E" alt="Avaliação E"></div>
+                    <div class="card-stack-slide"><img src="https://placehold.co/300x150/e2e8f0/64748b?text=Avalia%C3%A7%C3%A3o+F" alt="Avaliação F"></div>
+                    <div class="card-stack-slide"><img src="https://placehold.co/300x150/e2e8f0/64748b?text=Avalia%C3%A7%C3%A3o+G" alt="Avaliação G"></div>
+                    <div class="card-stack-slide"><img src="https://placehold.co/300x150/e2e8f0/64748b?text=Avalia%C3%A7%C3%A3o+H" alt="Avaliação H"></div>
+                </div>
+                <div class="text-center mt-4 opacity-0 animate-fall-down" style="animation-delay: 1.3s;">
+                    <a href="https://www.google.com/maps/place/Ffrizzo+Seguros/@-23.5784503,-46.7424779,18.5z/data=!4m8!3m7!1s0x94ce5434d3b729bd:0x22dc1a58d07f0ec0!8m2!3d-23.5786798!4d-46.7415655!9m1!1b1!16s%2Fg%2F11bzwxmpml?entry=ttu&g_ep=EgoyMDI1MDkwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="inline-flex items-center justify-center bg-yellow-500 text-white font-bold py-2 px-4 rounded-xl hover:bg-yellow-600 transition-transform transform hover:scale-105" style="max-width: 280px;">
+                        <svg class="w-8 h-5 text-white mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <span class="text-xs font-semibold">Nos Avalie</span>
                     </a>
                 </div>
+            </div>
+
+            <div class="mt-6 flex justify-center items-center gap-6 opacity-0 animate-blur-in" style="animation-delay: 1.4s;">
+                <a href="https://www.facebook.com/FrizzoCorretoraDeSeguros" target="_blank" class="flex items-center justify-center w-10 h-10 bg-blue-700 text-white rounded-full hover:bg-blue-800 transition-transform transform hover:scale-110">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/frizzoseguros/" target="_blank" class="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white rounded-full hover:opacity-90 transition-transform transform hover:scale-110">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
             </div>
         </main>
 
@@ -257,16 +329,104 @@
         const logoContainer = document.getElementById('logoContainer');
         if (logoContainer) {
             logoContainer.addEventListener('animationend', (event) => {
-                // Checa se a animação que terminou foi a de entrada
                 if (event.animationName === 'blur-in') {
-                    // Garante que o elemento permaneça visível removendo a classe de opacidade
                     logoContainer.classList.remove('opacity-0');
-                    // Adiciona a classe de rotação contínua
                     logoContainer.classList.add('animate-rotate-3d');
                 }
             });
         }
+
+        // --- Lógica para Carrossel: Pilha de Cartões Desorganizada ---
+        const cardStackContainer = document.getElementById('card-stack-container');
+        if (cardStackContainer) {
+            let cards = Array.from(cardStackContainer.children);
+            let cardInterval;
+            let touchstartX = 0;
+            let touchendX = 0;
+            let isAnimating = false;
+            let nextAutoDirection = 'right';
+
+            function shuffle(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+            
+            function applyRandomTransforms() {
+                cards.forEach((card, index) => {
+                    if (index > 0) {
+                        const randomRotate = Math.random() * 10 - 5;
+                        const randomTranslateX = Math.random() * 20 - 10;
+                        const randomTranslateY = Math.random() * 10 - 5;
+                        card.style.transform = `translateX(${randomTranslateX}px) translateY(${randomTranslateY}px) rotate(${randomRotate}deg) scale(${1 - index * 0.05})`;
+                    } else {
+                        card.style.transform = 'scale(1)';
+                    }
+                    card.style.zIndex = cards.length - index;
+                    card.style.opacity = 1 - index * 0.2;
+                });
+            }
+
+            function cycleCards(direction = 'auto') {
+                if (isAnimating || cards.length === 0) return;
+                isAnimating = true;
+
+                let swipeDirection = direction;
+                if (swipeDirection === 'auto') {
+                    swipeDirection = nextAutoDirection;
+                    nextAutoDirection = (nextAutoDirection === 'right') ? 'left' : 'right';
+                }
+
+                const firstCard = cards.shift();
+                firstCard.classList.add(swipeDirection === 'right' ? 'card-out-right' : 'card-out-left');
+
+                setTimeout(() => {
+                    cardStackContainer.appendChild(firstCard);
+                    firstCard.classList.remove('card-out-right', 'card-out-left');
+                    cards = Array.from(cardStackContainer.children);
+                    applyRandomTransforms();
+                    isAnimating = false;
+                }, 700);
+            }
+            
+            function startCardCycle() {
+                clearInterval(cardInterval);
+                cardInterval = setInterval(() => cycleCards('auto'), 5000);
+            }
+
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                if (touchstartX - touchendX > swipeThreshold) { // Swipe para a esquerda
+                    cycleCards('left');
+                    startCardCycle(); 
+                }
+                if (touchendX - touchstartX > swipeThreshold) { // Swipe para a direita
+                    cycleCards('right');
+                    startCardCycle(); 
+                }
+            }
+
+            cardStackContainer.addEventListener('touchstart', e => {
+                touchstartX = e.changedTouches[0].screenX;
+                clearInterval(cardInterval);
+            }, { passive: true });
+
+            cardStackContainer.addEventListener('touchend', e => {
+                touchendX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+
+            shuffle(cards);
+            cardStackContainer.innerHTML = '';
+            cards.forEach(card => cardStackContainer.appendChild(card));
+            cards = Array.from(cardStackContainer.children);
+            applyRandomTransforms();
+            startCardCycle();
+        }
+
     </script>
 
 </body>
 </html>
+
