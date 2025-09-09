@@ -23,7 +23,7 @@
         .bg-white { background-color: #fff; }
         .overflow-hidden { overflow: hidden; }
         .bg-\[\#193c5c\] { background-color: #193c5c; }
-        .p-8 { padding: 2rem; }
+        .p-5 { padding: 1.25rem; } /* Padding do Header ajustado */
         .p-6 { padding: 1.5rem; }
         .text-white { color: #fff; }
         .text-center { text-align: center; }
@@ -119,8 +119,8 @@
     
     <div class="w-full bg-white overflow-hidden">
         
-        <header class="bg-[#193c5c] p-6 text-white text-center" style="perspective: 800px;">
-            <div class="mx-auto h-28 w-28 rounded-full flex items-center justify-center mb-4 animate-rotate-3d">
+        <header class="bg-[#193c5c] p-5 text-white text-center" style="perspective: 800px;">
+            <div id="logoContainer" class="mx-auto h-28 w-28 rounded-full flex items-center justify-center mb-4 opacity-0 animate-blur-in">
                 <img src="img/Logo.png" alt="Logo Frizzo Seguros" class="h-full w-full object-cover rounded-full">
             </div>
             <h1 class="text-xl font-bold text-white opacity-0 animate-fall-down" style="animation-delay: 0.2s;">Frizzo Corretora de Seguros</h1>
@@ -144,7 +144,7 @@
                     </a>
                 </div>
                 <div class="space-y-4">
-                    <a href="Contato FrizzoSeguros.vcf" class="flex items-center justify-center w-full bg-gray-700 text-white font-bold py-3 px-2 rounded-xl hover:bg-gray-800 transition-transform transform hover:scale-105 text-center opacity-0 animate-blur-in" style="animation-delay: 0.7s;">
+                    <a href="Contato FrizzoSeguros.vcf" download="Frizzo_Seguros.vcf" class="flex items-center justify-center w-full bg-gray-700 text-white font-bold py-3 px-2 rounded-xl hover:bg-gray-800 transition-transform transform hover:scale-105 text-center opacity-0 animate-blur-in" style="animation-delay: 0.7s;">
                         <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                         <span class="text-xs font-semibold">Salvar Contato</span>
                     </a>
@@ -206,8 +206,6 @@
                     if (navigator.share) {
                         await navigator.share(shareData);
                     } else {
-                        // Fallback para copiar o link (não funciona em iframes de alguns ambientes)
-                        // Tente copiar para a área de transferência
                         try {
                             await navigator.clipboard.writeText(window.location.href);
                             const originalText = shareButton.querySelector('span').textContent;
@@ -216,7 +214,6 @@
                                 shareButton.querySelector('span').textContent = originalText;
                             }, 2000);
                         } catch (copyErr) {
-                            // Se navigator.clipboard também falhar, use um método mais antigo
                             const textArea = document.createElement("textarea");
                             textArea.value = window.location.href;
                             document.body.appendChild(textArea);
@@ -231,13 +228,26 @@
                                 }, 2000);
                             } catch (execErr) {
                                 console.error('Falha ao copiar o link.', execErr);
-                                // Poderia mostrar uma mensagem de erro para o usuário aqui
                             }
                             document.body.removeChild(textArea);
                         }
                     }
                 } catch (err) {
                     console.error('Erro ao compartilhar ou copiar:', err);
+                }
+            });
+        }
+
+        // --- Lógica para animar a logo em duas etapas ---
+        const logoContainer = document.getElementById('logoContainer');
+        if (logoContainer) {
+            logoContainer.addEventListener('animationend', (event) => {
+                // Checa se a animação que terminou foi a de entrada
+                if (event.animationName === 'blur-in') {
+                    // Garante que o elemento permaneça visível removendo a classe de opacidade
+                    logoContainer.classList.remove('opacity-0');
+                    // Adiciona a classe de rotação contínua
+                    logoContainer.classList.add('animate-rotate-3d');
                 }
             });
         }
