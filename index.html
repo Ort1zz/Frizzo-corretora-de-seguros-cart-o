@@ -48,7 +48,7 @@
         .card-stack-container {
             position: relative;
             width: 100%;
-            height: 260px;
+            height: 280px; /* Aumentado */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -57,8 +57,8 @@
         .card-stack-slide {
             position: absolute;
             width: 85%;
-            max-width: 340px;
-            height: 180px;
+            max-width: 360px; /* Aumentado */
+            height: 200px; /* Aumentado */
             transition: transform 0.7s ease-out, opacity 0.7s ease-out;
             border-radius: 0.75rem;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
@@ -87,7 +87,7 @@
     
     <div class="max-w-md mx-auto">
         
-        <header class="bg-[#193c5c] p-4 text-white text-center rounded-b-2xl shadow-lg" style="perspective: 800px;">
+        <header class="bg-[#193c5c] p-4 text-white text-center rounded-b-2xl shadow-2xl" style="perspective: 800px;">
             <div id="logoContainer" class="mx-auto h-28 w-28 rounded-full flex items-center justify-center mb-2 opacity-0 animate-blur-in">
                 <!-- ATENÇÃO: Troque 'img/Logo.png' pelo link da sua imagem ou faça o upload dela -->
                 <img src="img/Logo.png" alt="Logo Frizzo Seguros" class="h-full w-full object-cover rounded-full">
@@ -98,7 +98,36 @@
 
         <main class="p-4">
             <div class="text-center py-2">
-                <h2 class="text-lg font-semibold text-gray-800 opacity-0 animate-fall-down" style="animation-delay: 0.4s;">Plano de Saúde - Auto - Vida - Consórcio - Seguros</h2>
+                <div class="text-sm md:text-base font-semibold text-gray-700 opacity-0 animate-fall-down flex flex-wrap justify-center items-center gap-x-3 gap-y-2" style="animation-delay: 0.4s;">
+                    <span class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1.5 text-[#193c5c]" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                        </svg>
+                        Plano de Saúde
+                    </span>
+                    <span class="flex items-center">
+                        <img src="img/icone carro.png" alt="Ícone de carro" class="h-5 w-5 mr-1.5">
+                        Auto
+                    </span>
+                    <span class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1.5 text-[#193c5c]" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                        </svg>
+                        Vida
+                    </span>
+                    <span class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1.5 text-[#193c5c]" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+                        </svg>
+                        Consórcio
+                    </span>
+                    <span class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1.5 text-[#193c5c]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        Seguros
+                    </span>
+                </div>
             </div>
 
             <!-- Card de Botões -->
@@ -138,7 +167,7 @@
             
             <!-- Avaliações -->
             <div class="mt-4 opacity-0 animate-fall-down" style="animation-delay: 0.7s;">
-                <div class="text-center mb-4">
+                <div class="text-center mb-1"> <!-- Reduzido -->
                     <h3 class="text-xl font-bold text-gradient">A satisfação de nossos clientes</h3>
                     <p class="text-md text-gray-600 mt-1">Nossas avaliações do Google</p>
                 </div>
@@ -151,7 +180,7 @@
                     <div class="card-stack-slide"><img src="img/avaliação 5.png" alt="Avaliação E"></div>
                     <div class="card-stack-slide"><img src="img/avaliação 6.png" alt="Avaliação F"></div>
                 </div>
-                <div class="text-center mt-4">
+                <div class="text-center mt-1"> <!-- Reduzido -->
                     <a href="https://www.google.com/maps/place/Ffrizzo+Seguros/@-23.5784503,-46.7424779,18.5z/data=!4m8!3m7!1s0x94ce5434d3b729bd:0x22dc1a58d07f0ec0!8m2!3d-23.5786798!4d-46.7415655!9m1!1b1!16s%2Fg%2F11bzwxmpml?entry=ttu&g_ep=EgoyMDI1MDkwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="inline-flex items-center justify-center bg-yellow-500 text-white font-bold py-3 px-4 rounded-xl hover:bg-yellow-600 transition-transform transform hover:scale-105" style="max-width: 280px;">
                         <svg class="w-5 h-5 text-white mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                         <span class="text-sm font-semibold">Nos Avalie no Google</span>
@@ -342,3 +371,4 @@
 
 </body>
 </html>
+
